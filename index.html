@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiroj Bhandari</title>
+<meta name="description" content="Kiroj Bhandari — CA student from Urlabari-7, Baghkhor. Football, kickboxing, trading and travel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --offwhite:#f4f9fd;
+    --navy:#0b2e4f;
+    --blue:#1a73a8;
+    --sky:#4fb3e8;
+    --sky-light:#e6f4fc;
+    --text:#3f4b57;
+    --border:#dce7ef;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Inter", sans-serif;
+    color:var(--text);
+    background:var(--white);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:"Poppins", sans-serif;
+    color:var(--navy);
+    font-weight:600;
+    line-height:1.25;
+  }
+  a{color:var(--blue); text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+  :focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
+  section{padding:80px 0;}
+  .section-label{
+    font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--sky); font-weight:600; margin-bottom:10px; display:block;
+  }
+  .section-title{font-size:clamp(26px,4vw,36px); margin-bottom:32px;}
+  .bg-tint{background:var(--offwhite);}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .logo{font-family:"Poppins",sans-serif; font-weight:600; font-size:18px; color:var(--navy);}
+  .logo span{color:var(--sky);}
+  .navlinks{display:flex; gap:32px; font-size:15px; font-weight:500;}
+  .navlinks a{color:var(--text);}
+  .navlinks a:hover{color:var(--blue);}
+  .nav-toggle{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+  .nav-toggle span{display:block; width:22px; height:2px; background:var(--navy); margin:5px 0; transition:.2s;}
+
+  @media (max-width:760px){
+    .navlinks{
+      position:fixed; top:72px; left:0; right:0;
+      background:var(--white); border-bottom:1px solid var(--border);
+      flex-direction:column; gap:0; padding:8px 24px 16px;
+      transform:translateY(-8px); opacity:0; pointer-events:none;
+      transition:.2s ease;
+    }
+    .navlinks.open{transform:translateY(0); opacity:1; pointer-events:auto;}
+    .navlinks a{padding:12px 0; border-bottom:1px solid var(--border);}
+    .nav-toggle{display:block;}
+  }
+
+  /* HERO */
+  .hero{padding:72px 0 64px;}
+  .hero-inner{
+    display:flex; align-items:center; gap:56px;
+  }
+  .hero-text{flex:1.1;}
+  .hero-visual{flex:0.9; display:flex; justify-content:center;}
+  .eyebrow{
+    display:inline-block; font-size:13px; font-weight:600; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--blue); background:var(--sky-light);
+    padding:6px 14px; border-radius:20px; margin-bottom:20px;
+  }
+  .hero h1{font-size:clamp(38px,5.6vw,58px);}
+  .hero .role{
+    margin-top:14px; font-size:clamp(16px,2vw,19px); color:var(--blue); font-weight:500;
+  }
+  .hero p.lead{margin-top:20px; max-width:52ch; font-size:16.5px; color:var(--text);}
+  .hero-ctas{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px; border-radius:6px; font-weight:600; font-size:14.5px;
+    border:1.5px solid var(--blue);
+  }
+  .btn-primary{background:var(--blue); color:var(--white);}
+  .btn-primary:hover{background:var(--navy); border-color:var(--navy);}
+  .btn-outline{background:transparent; color:var(--blue);}
+  .btn-outline:hover{background:var(--sky-light);}
+
+  .badge-ring{
+    width:min(300px, 70vw); aspect-ratio:1/1; border-radius:50%;
+    background:linear-gradient(160deg, var(--sky-light), var(--white));
+    border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .badge-ring::before{
+    content:""; position:absolute; inset:18px; border-radius:50%;
+    border:1.5px dashed var(--sky);
+  }
+  .badge-ring .initials{
+    font-family:"Poppins",sans-serif; font-size:56px; font-weight:700; color:var(--navy);
+  }
+
+  @media (max-width:820px){
+    .hero-inner{flex-direction:column-reverse; text-align:center; gap:36px;}
+    .hero p.lead{margin-left:auto; margin-right:auto;}
+    .hero-ctas{justify-content:center;}
+  }
+
+  /* QUICK FACTS */
+  .facts{
+    display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border); margin-top:56px;
+  }
+  .fact{
+    flex:1 1 200px; padding:22px 20px; border-left:1px solid var(--border);
+  }
+  .fact:first-child{border-left:none;}
+  .fact .num{font-family:"Poppins",sans-serif; font-weight:700; color:var(--blue); font-size:15px; letter-spacing:0.04em;}
+  .fact .desc{font-size:14px; color:var(--text); margin-top:4px;}
+  @media (max-width:600px){ .fact{flex:1 1 45%; border-left:none; border-top:1px solid var(--border);} }
+
+  /* ABOUT */
+  .about-body p{max-width:66ch; margin-bottom:16px; font-size:16px;}
+  .about-list{margin-top:28px; display:flex; flex-direction:column; gap:14px;}
+  .about-list .row{display:flex; gap:14px; align-items:flex-start;}
+  .dot{
+    width:8px; height:8px; border-radius:50%; background:var(--sky);
+    margin-top:9px; flex-shrink:0;
+  }
+  .about-list .row b{color:var(--navy);}
+
+  /* EDUCATION TIMELINE */
+  .timeline{position:relative; padding-left:28px; border-left:2px solid var(--sky-light);}
+  .tl-item{position:relative; padding-bottom:36px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:-33px; top:4px;
+    width:12px; height:12px; border-radius:50%; background:var(--blue);
+    border:3px solid var(--sky-light);
+  }
+  .tl-item h4{font-size:17px;}
+  .tl-item .when{font-size:13px; color:var(--sky); font-weight:600; margin:4px 0 8px;}
+  .tl-item p{color:var(--text); font-size:15px; max-width:60ch;}
+
+  /* INTERESTS — flowing rows, not cards */
+  .interest-row{
+    display:flex; gap:24px; align-items:flex-start;
+    padding:28px 0; border-bottom:1px solid var(--border);
+  }
+  .interest-row:first-child{padding-top:0;}
+  .interest-row:last-child{border-bottom:none;}
+  .icon-circle{
+    width:52px; height:52px; border-radius:50%; background:var(--sky-light);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .icon-circle svg{width:24px; height:24px; stroke:var(--blue); fill:none; stroke-width:1.8;}
+  .interest-copy h3{font-size:19px;}
+  .interest-copy .sub{font-size:13px; color:var(--sky); font-weight:600; letter-spacing:0.03em; margin:3px 0 6px;}
+  .interest-copy p{font-size:15px; max-width:62ch; color:var(--text);}
+  @media (max-width:560px){
+    .interest-row{gap:16px;}
+    .icon-circle{width:44px; height:44px;}
+  }
+
+  /* QUOTE */
+  .quote-block{
+    text-align:center; padding:60px 24px; background:var(--navy); color:var(--white);
+  }
+  .quote-block p{
+    font-family:"Poppins",sans-serif; font-size:clamp(20px,3vw,28px); max-width:820px;
+    margin:0 auto; line-height:1.5;
+  }
+  .quote-block span{display:block; margin-top:18px; font-family:"Inter",sans-serif; font-size:14px; color:var(--sky);}
+
+  /* CONTACT */
+  .contact-grid{display:flex; gap:48px; flex-wrap:wrap; align-items:stretch;}
+  .contact-col{flex:1 1 280px; display:flex; flex-direction:column;}
+  .contact-col.info{justify-content:flex-start;}
+  .contact-item{display:flex; gap:14px; align-items:center; margin-bottom:20px;}
+  .contact-item .icon-circle{width:44px; height:44px;}
+  .contact-item .icon-circle svg{width:20px; height:20px;}
+  .contact-item div .label{font-size:12.5px; color:var(--sky); font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+  .contact-item div a, .contact-item div span{font-size:15.5px; color:var(--navy); font-weight:500;}
+
+  .social-row{display:flex; gap:12px; margin-top:8px;}
+  .social-link{
+    width:44px; height:44px; border-radius:50%; border:1.5px solid var(--border);
+    display:flex; align-items:center; justify-content:center; transition:.2s;
+  }
+  .social-link svg{width:19px; height:19px; stroke:var(--blue); fill:none; stroke-width:1.6;}
+  .social-link:hover{background:var(--blue); border-color:var(--blue);}
+  .social-link:hover svg{stroke:var(--white);}
+
+  .msg-card{
+    background:var(--offwhite); border:1px solid var(--border); border-radius:10px;
+    padding:32px;
+  }
+  .msg-card h3{font-size:19px; margin-bottom:10px;}
+  .msg-card p{font-size:15px; margin-bottom:20px; max-width:48ch;}
+
+  footer{
+    border-top:1px solid var(--border); padding:28px 0; text-align:center;
+    font-size:13.5px; color:var(--text);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">Kiroj <span>Bhandari</span></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navlinks" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#interests">Interests</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow">Urlabari-7, Baghkhor</span>
+        <h1>Kiroj Bhandari</h1>
+        <p class="role">CA Student · Footballer · Kickboxer · Trader · Traveler</p>
+        <p class="lead">Currently pursuing my CA while staying active with football and kickboxing on the side. I follow the stock market closely, love traveling to new places, and I'm usually the one cracking a sarcastic remark when you least expect it.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="mailto:kirojiskey@gmail.com">Email Me</a>
+          <a class="btn btn-outline" href="tel:+9779804368847">Call Me</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="badge-ring"><span class="initials">KB</span></div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="facts">
+        <div class="fact"><div class="num">CA</div><div class="desc">Currently studying Chartered Accountancy</div></div>
+        <div class="fact"><div class="num">Football</div><div class="desc">Weekend regular, five-a-side and full pitch</div></div>
+        <div class="fact"><div class="num">Kickboxing</div><div class="desc">Training for fitness, discipline and sport</div></div>
+        <div class="fact"><div class="num">Trading</div><div class="desc">Learning markets the hard, expensive way</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="bg-tint">
+    <div class="wrap about-body">
+      <span class="section-label">About Me</span>
+      <h2 class="section-title">A bit more about who I am</h2>
+      <p>I'm Kiroj Bhandari, from Urlabari-7, Baghkhor. Right now, most of my structured hours go into studying Chartered Accountancy — a field that has taught me more about discipline and delayed gratification than I expected, and one that I take seriously even when I joke about it.</p>
+      <p>Outside of that, I live a fairly active and slightly unpredictable life. I play football regularly, train in kickboxing, and treat both as much as a mental reset as physical exercise. I also dabble in trading stocks, which has taught me that markets have zero interest in my study schedule.</p>
+      <p>Travel and adventure are the parts of my life that keep everything else in perspective — new places, new roads, and the occasional questionable decision along the way. And through all of it, sarcasm remains my default setting; it's less a personality flaw and more a coping mechanism I've fully committed to.</p>
+
+      <div class="about-list">
+        <div class="row"><span class="dot"></span><p><b>Based in:</b> Urlabari-7, Baghkhor</p></div>
+        <div class="row"><span class="dot"></span><p><b>Currently studying:</b> Chartered Accountancy (CA)</p></div>
+        <div class="row"><span class="dot"></span><p><b>Active in:</b> Football, kickboxing and general chaos on weekends</p></div>
+        <div class="row"><span class="dot"></span><p><b>Also exploring:</b> Stock trading, travel planning, and the fine art of the well-timed comeback</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <span class="section-label">Education &amp; Path</span>
+      <h2 class="section-title">Where I'm headed</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <h4>Chartered Accountancy — In Progress</h4>
+          <div class="when">Current</div>
+          <p>Working through the CA curriculum, one paper, one panic, and one late-night revision session at a time. Building a foundation in accounting, audit, taxation and financial reporting.</p>
+        </div>
+        <div class="tl-item">
+          <h4>Applying the Numbers Outside the Classroom</h4>
+          <div class="when">Ongoing</div>
+          <p>Using what I learn in CA to actually understand the stock trades I make — instead of just guessing and blaming the market afterward.</p>
+        </div>
+        <div class="tl-item">
+          <h4>What's Next</h4>
+          <div class="when">Future</div>
+          <p>Finishing the CA program and figuring out how to turn a love of numbers, sport and travel into a career that doesn't feel like a compromise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section id="interests" class="bg-tint">
+    <div class="wrap">
+      <span class="section-label">Beyond the Desk</span>
+      <h2 class="section-title">What I actually spend my time on</h2>
+
+      <div class="interest-row">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg>
+        </div>
+        <div class="interest-copy">
+          <h3>Football</h3>
+          <div class="sub">Weekends, five-a-side and full pitch</div>
+          <p>My most consistent hobby. Doesn't matter how the week went — a match resets everything. I'm more reliable on the pitch than I am with my revision timetable.</p>
+        </div>
+      </div>
+
+      <div class="interest-row">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"/><circle cx="16" cy="16" r="4"/><path d="M11 11l2 2"/></svg>
+        </div>
+        <div class="interest-copy">
+          <h3>Kickboxing</h3>
+          <div class="sub">Discipline, fitness, sport</div>
+          <p>Started for fitness, stayed for the discipline it forces on you. It's the one place where sarcasm doesn't help — you either show up prepared or you don't.</p>
+        </div>
+      </div>
+
+      <div class="interest-row">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M2 16l7-7 5 5 8-8M22 6h-6v6"/></svg>
+        </div>
+        <div class="interest-copy">
+          <h3>Travelling &amp; Adventure</h3>
+          <div class="sub">New places, new roads</div>
+          <p>Whenever I get the chance, I try to get out — new towns, new trails, new problems to solve on the fly. It's the best break from ledgers and league tables alike.</p>
+        </div>
+      </div>
+
+      <div class="interest-row">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 01-4 4H8l-5 3V6a4 4 0 014-4h10a4 4 0 014 4z"/></svg>
+        </div>
+        <div class="interest-copy">
+          <h3>Sarcasm</h3>
+          <div class="sub">A load-bearing personality trait</div>
+          <p>Not officially a skill, but it should be. If you ask me a genuine question, expect a genuine answer wrapped in at least one unnecessary joke.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="quote-block">
+    <p>"Long on ambition, short on patience — working on both."</p>
+    <span>— Kiroj Bhandari</span>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Let's connect</h2>
+
+      <div class="contact-grid">
+        <div class="contact-col info">
+          <div class="contact-item">
+            <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M3 6l9 7 9-7"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg></div>
+            <div><div class="label">Email</div><a href="mailto:kirojiskey@gmail.com">kirojiskey@gmail.com</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 2.9a2 2 0 01-.5 2.1L8 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.9.5 2.9.6a2 2 0 011.7 2.2z"/></svg></div>
+            <div><div class="label">Phone</div><a href="tel:+9779804368847">+977 980-4368847</a></div>
+          </div>
+          <div class="contact-item" style="margin-bottom:0;">
+            <div class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-9-11a5 5 0 019-3 5 5 0 019 3c-2 5-9 11-9 11z"/></svg></div>
+            <div><div class="label">Location</div><span>Urlabari-7, Baghkhor</span></div>
+          </div>
+        </div>
+
+        <div class="contact-col">
+          <div class="msg-card" style="flex:1; display:flex; flex-direction:column;">
+            <h3>Reach out directly</h3>
+            <p>For matches, sparring, trades or just an argument about which one of those is more fun — email or call works best.</p>
+            <a class="btn btn-primary" href="mailto:kirojiskey@gmail.com" style="align-self:flex-start;">Send an Email</a>
+            <div style="margin-top:auto; padding-top:24px;">
+              <div class="label" style="font-size:12.5px; color:var(--sky); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:10px;">Follow along</div>
+              <div class="social-row">
+                <a class="social-link" href="https://instagram.com/earthniwasi_" target="_blank" rel="noopener" aria-label="Instagram — earthniwasi_">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+                </a>
+                <a class="social-link" href="https://facebook.com/earthniwasi_" target="_blank" rel="noopener" aria-label="Facebook — earthniwasi_">
+                  <svg viewBox="0 0 24 24"><path d="M15 8h-2c-1 0-2 .6-2 2v2H9v3h2v7h3v-7h2.2l.3-3H14v-1.5c0-.4.3-.5.6-.5H15V8z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Kiroj Bhandari · Urlabari-7, Baghkhor
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
+
+</body>
+</html>
